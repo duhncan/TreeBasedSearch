@@ -1,2 +1,40 @@
-﻿  main.cpp
-  IntrotoAI-Assignment1.vcxproj -> C:\Users\duhnc\source\repos\IntrotoAI-Assignment1\x64\Debug\IntrotoAI-Assignment1.exe
+﻿  AStarSearch.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  BreadthFirstSearch.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\BreadthFirstSearch.cpp(18): error C2102: '&' requires l-value
+  CUS1.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  CUS2.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  DepthFirstSearch.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  GreedySearch.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\searchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\main.cpp(170,14): warning C4244: '=': conversion from 'clock_t' to 'float', possible loss of data
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\main.cpp(184,16): warning C4129: 'P': unrecognized character escape sequence
+  Node.cpp
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(16,13): error C2039: 'string': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.31.31103\include\vector(24): message : see declaration of 'std'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(16,37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(16,20): error C2146: syntax error: missing ';' before identifier 'DirectionToString'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(17,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(20,37): error C2440: 'return': cannot convert from 'const char [5]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(20,31): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(21,34): error C2440: 'return': cannot convert from 'const char [3]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(21,30): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(22,37): error C2440: 'return': cannot convert from 'const char [5]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(22,31): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(23,37): error C2440: 'return': cannot convert from 'const char [5]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(23,31): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(24,39): error C2440: 'return': cannot convert from 'const char [6]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(24,32): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(26,18): error C2440: 'return': cannot convert from 'const char [8]' to 'int'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(26,9): message : There is no context in which this conversion is possible
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(27,1): error C2617: 'DirectionToString': inconsistent return statement
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\states.h(16): message : see declaration of 'DirectionToString'
+C:\Users\duhnc\Git\TreeBasedSearch\Codebase\SearchMethod.h(56,24): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  puzzle.cpp
+  Generating Code...

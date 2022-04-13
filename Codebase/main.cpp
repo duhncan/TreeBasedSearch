@@ -1,35 +1,21 @@
 #include "common.h"
 
+#include <regex>
+#include <chrono>
+
 #include "messages.h"
 #include "puzzle.h"
 #include "states.h"
 #include "searchMethod.h"
-#include <regex>
+#include "BreadthFirstSearch.h"
+#include "DepthFirstSearch.h"
+#include "AStarSearch.h"
+#include "GreedySearch.h"
+#include "CUS1.h"
+#include "CUS2.h"
+
 
 using namespace std;
-
-
-//// Reads file into list given in parameter and writes to the given list
-//// If file doesn't exists, returns 0
-//// Will return nonzero value file verification passes
-//int readFile(string& filepath, vector<string>& lines) {
-//	ifstream myfile(filepath);
-//	string s;
-//
-//	if (!myfile)
-//	{
-//		cout << "Cannot open the File:\t" << filepath << endl;
-//		return 0;
-//	}
-//
-//	int i = 0;
-//	while (getline(myfile, s)) {
-//		lines.insert(lines.end(), s);
-//	}
-//
-//	myfile.close();
-//	return 1;
-//}
 
 // Reads file into vector
  vector<string> inputFromFile(string& filepath){
@@ -37,11 +23,8 @@ using namespace std;
 	vector<string> vec;
 	string s;
 
-	if (!myfile)
-	{
-		return vec;
-	}
-
+	if (!myfile) return vec;
+	
 	int i = 0;
 	while (getline(myfile, s)) {
 		vec.insert(vec.end(), s);
@@ -62,10 +45,6 @@ int countWords(string str)
 		count++;
 	return count;
 }
-
-//vector<int> state(int x, int y) {
-//	return 
-//}
 
 
 // This method will return 0 if there is an error.
@@ -106,15 +85,12 @@ int functionSearch(string filename, string method) {
 				states.push_back(pointTemp);
 
 				if (incr == 0) {
-					std::cout << "say: " << "0" << std::endl;
 					puzzleSize.push_back(states);
 				} 
 				else if (incr == 1) {
-					std::cout << "say: " << "1" << std::endl;
 					initialState.push_back(states);
 				}
 				else if (incr == 2) {
-					std::cout << "say: " << "2" << std::endl;;
 					goalStates.push_back(states);
 				}
 				states.clear();
@@ -133,76 +109,90 @@ int functionSearch(string filename, string method) {
 		incr++;
 	}
 
-	//cout << "Original" << endl;
-	//for (auto i : fileDataZ) {
-	//	for (auto j : i) {
-	//		cout << "\t[\t" << j.x << "\t" << j.y << "\t" << j.height << "\t" << j.width << "\t]" << endl;
-	//	}
-	//}
-
-	//cout << "Puzzle Size" << endl;
-	//for (auto i : puzzleSize) {
-	//	for (auto j : i) {
-	//		cout << "\t[\t" << j.x << "\t" << j.y << "\t" << j.height << "\t" << j.width << "\t]" << endl;
-	//	}
-	//}
-
-	//cout << "Initial State" << endl;
-	//for (auto i : initialState) {
-	//	for (auto j : i) {
-	//		cout << "\t[\t" << j.x << "\t" << j.y << "\t" << j.height << "\t" << j.width << "\t]" << endl;
-	//	}
-	//}
-
-	//cout << "Goal States" << endl;
-	//for (auto i : goalStates) {
-	//	for (auto j : i) {
-	//		cout << "\t[\t" << j.x << "\t" << j.y << "\t" << j.height << "\t" << j.width << "\t]" << endl;
-	//	}
-	//}
-
-	//cout << "llegal States" << endl;
-	//for (auto i : illegalStates) {
-	//	for (auto j : i) {
-	//		cout << "\t[\t" << j.x << "\t" << j.y << "\t" << j.height << "\t" << j.width << "\t]" << endl;
-	//	}
-	//}
-
 
 	// Setup Puzzle
-	Puzzle map(puzzleSize[0][0].x, puzzleSize[0][0].y, initialState[0], goalStates[0], illegalStates[0]);	
+	Puzzle map(puzzleSize[0][0].x, puzzleSize[0][0].y);	
+	map.SetStartState(initialState[0][0].x, initialState[0][0].y);
 
+	// Input all individual Goal States
+	for (int i = 0; i < goalStates.size();i++) {
+		for (int j = 0; j < goalStates[i].size(); j++) {
+			map.AddGoalState(goalStates[i][j].x, goalStates[i][j].y);
+		}
+	}
+	// Input all individual Illegal States
+	for (auto i : illegalStates) {
+		for (auto j : i) {
+			int maxWidth = j.x + j.width;
+			int maxHeight = j.y + j.height;
+			
+			for (int k = j.x; k < maxWidth; k++) {
+				for (int l = j.y; l < maxHeight; l++) {
+					map.AddIllegalState(k, l);
+				}
+			}
+
+		}
+	}
+
+	map.DrawPuzzle();
 
 	// Search Method
-	searchMethod smptr = nullptr;
+	SearchMethod* smptr = nullptr;
 
-	// Main L
-	if (method == "dfs") {
-		cout << "You have chosen Depth-First Search (DFS).\nWorking..." << endl;
-	}
-	else if (method == "bfs") {
-		cout << "You have chosen Breadth-First Search(BFS).\nWorking..." << endl;
+	if (method == BreadthFirstSearch::getSMCode())
+		smptr = new BreadthFirstSearch();
+	else if (method == DepthFirstSearch::getSMCode())
+		smptr = new DepthFirstSearch();
+	else if (method == AStarSearch::getSMCode())
+		smptr = new AStarSearch();
+	else if (method == GreedySearch::getSMCode())
+		smptr = new GreedySearch();
+	else if (method == CUS1::getSMCode())
+		smptr = new CUS1();
+	else if (method == CUS2::getSMCode())
+		smptr = new CUS2();
 
+	if (smptr == nullptr) {
+		messageError("Search Method Error");
+		return 1;
 	}
-	else if (method == "gbfs") {
-		cout << "You have chosen Greedy Best First Search (GBFS).\nWorking..." << endl;
 
-	}
-	else if (method == "as") {
-		cout << "You have chosen A* ('A Star' or AS).\nWorking..." << endl;
+	SearchMethod& search = *smptr;
 
+	// Implement a Timer
+	float time = 0.0f;
+	{
+		clock_t start, end;
+		start = clock();
+		search.Solve(map);
+		end = clock();
+		time = end - start;
 	}
-	else if (method == "cus1") {
-		cout << "You have chosen (CUS1).\nWorking..." << endl;
 
-	}
-	else if (method == "cus2") {
-		cout << "You have chosen (CUS2).\nWorking..." << endl;
+	// Solve Message
+	if (search.isSolved()) {
+		std::cout << "Done." << std::endl;
+		std::cout << "Solution found in ";
+		if (time < 2000.0f)
+			std::cout << time << "ms";
+		else
+			std::cout << (time / 1000.0f) << "s";
+		std::cout << std::endl;
+		std::cout << "\nNumber of Nodes: " << search.getIterations() << std::endl;
+
+		std::cout << "\Path: " << search.getIterations() << std::endl;
+		for (auto direction : search.getDirectionalPath())
+			std::cout << DirectionToString(direction) << ";";
+		std::cout << std::endl;
 
 	}
 	else {
-		cout << "Not a valid method type!" << endl;
+		std::cout << "No solution found." << std::endl;
 	}
+
+
+
 
 	return 1;
 }

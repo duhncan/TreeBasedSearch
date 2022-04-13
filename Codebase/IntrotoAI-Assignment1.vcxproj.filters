@@ -21,6 +21,27 @@
     <ClCompile Include="puzzle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BreadthFirstSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthFirstSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GreedySearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CUS1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CUS2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AStarSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt">
@@ -37,10 +58,31 @@
     <ClInclude Include="puzzle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="searchMethod.h">
+    <ClInclude Include="SearchMethod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="states.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BreadthFirstSearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthFirstSearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AStarSearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GreedySearch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CUS1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CUS2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

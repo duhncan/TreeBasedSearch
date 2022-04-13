@@ -139,15 +139,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AStarSearch.cpp" />
+    <ClCompile Include="BreadthFirstSearch.cpp" />
+    <ClCompile Include="CUS1.cpp" />
+    <ClCompile Include="CUS2.cpp" />
+    <ClCompile Include="DepthFirstSearch.cpp" />
+    <ClCompile Include="GreedySearch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="puzzle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AStarSearch.h" />
+    <ClInclude Include="BreadthFirstSearch.h" />
     <ClInclude Include="common.h" />
-    <ClInclude Include="searchMethod.h" />
+    <ClInclude Include="CUS1.h" />
+    <ClInclude Include="CUS2.h" />
+    <ClInclude Include="DepthFirstSearch.h" />
+    <ClInclude Include="GreedySearch.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="SearchMethod.h" />
     <ClInclude Include="messages.h" />
     <ClInclude Include="puzzle.h" />
     <ClInclude Include="states.h" />
